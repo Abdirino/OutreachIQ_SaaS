@@ -1,4 +1,4 @@
-
+import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -47,35 +47,20 @@ export default function Homepage() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-16">
             <Link href="#">
-              <Globe2Icon className="size-12" />
+              <Globe2Icon className="size-12" /> WHO Organization
             </Link>
             <Link href="#">
-              <Tv2Icon className="size-12" />
+              <Tv2Icon className="size-12" /> IAffordable
             </Link>
             <Link href="#">
-              <NetworkIcon className="size-12" />
+              <NetworkIcon className="size-12" /> ZeTech
             </Link>
             <Link href="#">
-              <Globe2Icon className="size-12" />
+              <Globe2Icon className="size-12" /> Netflix
             </Link>
-            <Link href="#">
-              <Tv2Icon className="size-12" />
-            </Link>
-            <Link href="#">
-              <NetworkIcon className="size-12" />
-            </Link>
-            <Link href="#">
-              <Globe2Icon className="size-12" />
-            </Link>
-            <Link href="#">
-              <Tv2Icon className="size-12" />
-            </Link>
-            <Link href="#">
-              <NetworkIcon className="size-12" />
-            </Link>
-
+            
             <Link className="md:max-xl:hidden" href="#">
-              <Globe2Icon className="size-12" />
+              <Globe2Icon className="size-12" />Socket Inc.
             </Link>
           </div>
         </div>
@@ -90,6 +75,21 @@ export default function Homepage() {
           ))}
         </div>
       </section>
+      <footer className="container pt-16 pb-8 flex flex-col sm:flex-row gap-8 sm:gap-4 justify-between items-start">
+        <Link href="/">
+          <Logo />
+        </Link>
+        <div className="flex flex-col sm:flex-row gap-8">
+          <div className="flex flex-col gap-8">
+            <FooterLinkGroup
+              title="Help"
+              links={[{ label: "OutreachIQ discounts", href: "#" },
+                { label: "Discount API", href: "#" }
+              ]}
+            />
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
@@ -103,7 +103,7 @@ function PricingCard({
   canAccessAnalytics,
   canCustomizeBanner,
 }: (typeof subscriptionTiersInOrder)[number]) {
-  const isMostPopular = name === "Standardj";
+  const isMostPopular = name === "Standard";
   return (
     <Card>
       <CardHeader>
@@ -117,7 +117,12 @@ function PricingCard({
       </CardHeader>
       <CardContent>
         <SignUpButton>
-          <Button>Hello</Button>
+          <Button
+            className="text-lg w-full rounded-lg"
+            variant={isMostPopular ? "accent" : "default"}
+          >
+            Get Started
+          </Button>
         </SignUpButton>
       </CardContent>
       <CardFooter className="flex flex-col gap-4 items-start">
@@ -125,7 +130,10 @@ function PricingCard({
           {maxNumberOfProducts}{" "}
           {maxNumberOfProducts === 1 ? "product" : "products"} products
         </Feature>
-        <Feature></Feature>
+        <Feature>OutreachIQ Discounts</Feature>
+        {canAccessAnalytics && <Feature>Advanced Analytics</Feature>}
+        {canRemoveBranding && <Feature>Remove Easy PPP Branding</Feature>}
+        {canCustomizeBanner && <Feature>Banner Customization</Feature>}
       </CardFooter>
     </Card>
   );
@@ -145,3 +153,16 @@ function Feature({
     </div>
   );
 }
+
+function FooterLinkGroup({title, links}: {title: string, links: {
+  label: string, href:string}[]}) {
+    return (
+    <div className="flex flex-col gap-4">
+      <h3 className="font-semibold">{title}</h3>
+      <ul className="flex flex-col gap-2 text-sm">
+        {links.map(link => (
+          <li key={link?.href}><Link href={link.href}>{link.label}</Link></li>
+        ))}
+      </ul>
+    </div>
+  )}
