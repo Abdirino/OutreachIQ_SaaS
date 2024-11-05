@@ -2,7 +2,7 @@ export const subscriptionTiers = {
   Free: {
     name: "Free",
     priceInCents: 0,
-    maxNumberOfProducts: 1,
+    maxNumberOfProducts: 5,
     maxNumberOfVisits: 5000,
     canAccessAnalytics: false,
     canCustomizeBanner: false,
@@ -10,8 +10,8 @@ export const subscriptionTiers = {
   },
   Basic: {
     name: "Basic",
-    priceInCents: 1900,
-    maxNumberOfProducts: 5,
+    priceInCents: 2900,
+    maxNumberOfProducts: 10,
     maxNumberOfVisits: 10000,
     canAccessAnalytics: true,
     canCustomizeBanner: false,
@@ -19,7 +19,7 @@ export const subscriptionTiers = {
   },
   Standard: {
     name: "Standard",
-    priceInCents: 4900,
+    priceInCents: 7900,
     maxNumberOfProducts: 30,
     maxNumberOfVisits: 100000,
     canAccessAnalytics: true,
@@ -28,7 +28,7 @@ export const subscriptionTiers = {
   },
   Premium: {
     name: "Premium",
-    priceInCents: 9900,
+    priceInCents: 14900,
     maxNumberOfProducts: 50,
     maxNumberOfVisits: 1000000,
     canAccessAnalytics: true,

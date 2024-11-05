@@ -128,7 +128,7 @@ function PricingCard({
       <CardFooter className="flex flex-col gap-4 items-start">
         <Feature className="font-bold">
           {maxNumberOfProducts}{" "}
-          {maxNumberOfProducts === 1 ? "product" : "products"} products
+          {maxNumberOfProducts === 1 ? "Email Templates" : "Email Templates"}
         </Feature>
         <Feature>OutreachIQ Discounts</Feature>
         {canAccessAnalytics && <Feature>Advanced Analytics</Feature>}
