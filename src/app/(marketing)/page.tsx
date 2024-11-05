@@ -1,10 +1,26 @@
+
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { subscriptionTiersInOrder } from "@/data/subscriptionTiers";
 import { formatCompactNumber } from "@/lib/formatters";
+import { cn } from "@/lib/utils";
 import { SignUpButton } from "@clerk/nextjs";
-import { ArrowRightIcon, Globe2Icon, Tv2Icon, NetworkIcon } from "lucide-react";
+import {
+  ArrowRightIcon,
+  Globe2Icon,
+  Tv2Icon,
+  NetworkIcon,
+  CheckIcon,
+} from "lucide-react";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 export default function Homepage() {
   return (
@@ -87,18 +103,45 @@ function PricingCard({
   canAccessAnalytics,
   canCustomizeBanner,
 }: (typeof subscriptionTiersInOrder)[number]) {
-  return <Card>
-    <CardHeader>
-      <div className="text-accent font-semibold mb-8">{name}</div>
-      <CardTitle className="text-xl font-bold">${priceInCents / 100} /mo</CardTitle>
-      <CardDescription>
-        {formatCompactNumber(maxNumberOfVisits)} pricing page visits /mo
-      </CardDescription>
-    </CardHeader>
-    <CardContent>
-      <SignUpButton>
-        <Button>Get Started</Button>
-      </SignUpButton>
-    </CardContent>
-  </Card>
+  const isMostPopular = name === "Standardj";
+  return (
+    <Card>
+      <CardHeader>
+        <div className="text-accent font-semibold mb-8">{name}</div>
+        <CardTitle className="text-2xl font-bold">
+          ${priceInCents / 100} /mo
+        </CardTitle>
+        <CardDescription>
+          {formatCompactNumber(maxNumberOfVisits)} pricing page visits /mo
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <SignUpButton>
+          <Button>Hello</Button>
+        </SignUpButton>
+      </CardContent>
+      <CardFooter className="flex flex-col gap-4 items-start">
+        <Feature className="font-bold">
+          {maxNumberOfProducts}{" "}
+          {maxNumberOfProducts === 1 ? "product" : "products"} products
+        </Feature>
+        <Feature></Feature>
+      </CardFooter>
+    </Card>
+  );
+}
+
+function Feature({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={cn("flex items-center gap-2", className)}>
+      <CheckIcon className="size-4 stroke-accent bg-accent/25 rounded-full p-0.5" />
+      <span>{children}</span>
+    </div>
+  );
 }

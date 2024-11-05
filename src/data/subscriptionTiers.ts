@@ -37,8 +37,8 @@ export const subscriptionTiers = {
   },
 };
 export const subscriptionTiersInOrder = [
-    subscriptionTiers.Free,
-    subscriptionTiers.Basic,
+    subscriptionTiers.Premium,
     subscriptionTiers.Standard,
-    subscriptionTiers.Premium
+    subscriptionTiers.Basic,
+    subscriptionTiers.Free,
 ]
