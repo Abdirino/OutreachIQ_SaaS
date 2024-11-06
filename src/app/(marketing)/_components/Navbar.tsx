@@ -5,7 +5,7 @@ import Link from "next/link";
 export function Navbar() {
   return (
     <header className="flex backdrop-blur-sm fixed top-0 w-full z-10">
-      <nav className="flex items-center gap-10 container font-semibold">
+      <nav className="flex text-white items-center gap-10 container font-semibold">
         <Link href="/" className="mr-auto">
           <Logo />
         </Link>
