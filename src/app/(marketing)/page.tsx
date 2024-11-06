@@ -38,12 +38,12 @@ export default function Homepage() {
         </p>
         <div className="flex gap-4 items-center">
           <SignUpButton>
-            <Button className="text-lg p-6 rounded-xl flex gap-2 bg-[#f1c40f] text-black hover:bg-black hover:text-white">
+            <Button className="text-lg p-6 rounded-xl flex gap-2 bg-[#f1c40f] text-black">
               Try OutreachIQ for Free! <ArrowRightIcon className="size-5" />
             </Button>
           </SignUpButton>
-          <Button className="text-lg p-6 rounded-xl flex gap-2 hover:bg-[#f1c40f] hover:text-black">
-            Book Demo
+          <Button className="text-lg p-6 rounded-xl flex gap-2">
+            Schedule a Demo
           </Button>
         </div>
       </section>
@@ -74,10 +74,10 @@ export default function Homepage() {
         </div>
       </section>
       <section id="pricing" className="px-8 py-16 bg-accent/5 ">
-        <h2 className="text-4xl px-10 sm:px-4 tracking-wider text-center text-balance font-semibold mb-4">
+        <h2 className="text-4xl px-10 sm:px-4 text-center text-balance font-bold mb-2">
           Choose Your OutreachIQ Plan,
         </h2>
-        <h2 className="text-4xl px-10 sm:px-4 tracking-wider text-center text-balance font-semibold mb-8">
+        <h2 className="text-4xl px-10 sm:px-4 text-center text-balance font-bold mb-8">
           Tailored for Every Stage of Growth
         </h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-screen-xl mx-auto">
@@ -119,7 +119,7 @@ function PricingCard({
   return (
     <Card>
       <CardHeader>
-        <div className="text-[#3b82f6] font-semibold mb-8">{name}</div>
+        <div className="text-[#2ecc71] font-semibold mb-8">{name}</div>
         <CardTitle className="flex items-end text-3xl font-bold">
           ${priceInCents / 100}
           <span className="text-xl font-semibold">/mo</span>
@@ -132,7 +132,7 @@ function PricingCard({
         <SignUpButton>
           <Button
             className="text-lg w-full rounded-lg"
-            variant={isMostPopular ? "accent" : "default"}
+            variant={isMostPopular ? "OutreachIQ_Yellow" : "default"}
           >
             Get Started
           </Button>
@@ -161,7 +161,7 @@ function Feature({
 }) {
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <CheckIcon className="size-4 stroke-accent bg-accent/25 rounded-full p-0.5" />
+      <CheckIcon className="size-4 stroke-[#20673e] bg-[#2ecc71]/25 rounded-full p-0.5" />
       <span>{children}</span>
     </div>
   );
