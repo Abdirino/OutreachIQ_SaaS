@@ -48,9 +48,9 @@ export default function Homepage() {
         </div>
       </section>
       <section className="bg-primary text-primary-foreground">
-        <div className="container py-16 flex flex-col gap-16 px-8 lg:px-16">
+        <div className="container py-10 flex flex-col gap-16 px-8 lg:px-16">
           <h2 className="text-3xl text-center text-balance">
-            Trusted by top modern companies
+            Trusted by Growing Sales Teams Worldwide
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-16">
             <Link href="#">
@@ -73,7 +73,7 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-      <section id="pricing" className="px-8 py-16 bg-accent/5 ">
+      <section id="pricing" className="px-8 py-24 bg-accent/5 ">
         <h2 className="text-4xl px-10 sm:px-4 text-center text-balance font-bold mb-2">
           Choose Your OutreachIQ Plan,
         </h2>
